@@ -1,0 +1,16 @@
+# Windows
+Thumbs.db
+Desktop.ini
+.release-notes.md
+
+# Release assets: ficam em GitHub Releases, nao no historico Git
+*.zip
+*.exe
+*.pdf
+*.mp4
+
+# Permitir os arquivos de controle do repo
+!.gitignore
+!README.md
+!publish-release.ps1
+!SHA256SUMS.txt
