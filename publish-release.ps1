@@ -39,6 +39,10 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
 
 $shaFile = Join-Path $root "SHA256SUMS.txt"
 $releaseTitleValue = if ($ReleaseTitle) { $ReleaseTitle } else { "HEROIA Installer $Version" }
+$mainInstaller = $assets | Where-Object { $_.Name -like "*.exe" } | Select-Object -First 1
+$pdfManual = $assets | Where-Object { $_.Extension -eq ".pdf" } | Select-Object -First 1
+$videoFiles = @($assets | Where-Object { $_.Extension -eq ".mp4" })
+$zipPackage = $assets | Where-Object { $_.Extension -eq ".zip" } | Select-Object -First 1
 
 $hashLines = foreach ($asset in $assets) {
     $hash = (Get-FileHash -LiteralPath $asset.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -50,7 +54,29 @@ Set-Content -LiteralPath $shaFile -Value $hashLines -Encoding UTF8
 $notesLines = @(
     "# $releaseTitleValue",
     "",
-    "Entrega publica final do instalador HEROIA.",
+    "Entrega publica do instalador HEROIA para distribuicao aos usuarios finais.",
+    "",
+    "## Como baixar",
+    "",
+    "1. Baixe o instalador principal listado abaixo.",
+    "2. Se necessario, baixe tambem o manual em PDF e os videos de apoio.",
+    "3. Execute a instalacao no Windows com permissao de administrador.",
+    ""
+)
+
+if ($mainInstaller) {
+    $notesLines += "## Arquivo principal recomendado"
+    $notesLines += ""
+    $notesLines += ("- {0}" -f $mainInstaller.Name)
+    $notesLines += ""
+}
+
+$notesLines += @(
+    "## Conteudo desta entrega",
+    "",
+    "- Instalador principal do HEROIA",
+    "- Materiais de apoio para instalacao e uso",
+    "- Arquivo `SHA256SUMS.txt` para verificacao de integridade",
     "",
     "## Arquivos incluidos"
 )
@@ -62,7 +88,31 @@ $notesLines += foreach ($asset in $assets) {
 
 $notesLines += @(
     "",
+    "## Orientacoes de uso",
+    ""
+)
+
+if ($mainInstaller) {
+    $notesLines += "- Instale usando `"$($mainInstaller.Name)`"."
+}
+
+if ($pdfManual) {
+    $notesLines += "- Consulte `"$($pdfManual.Name)`" para orientacoes ilustradas."
+}
+
+if ($videoFiles.Count -gt 0) {
+    $notesLines += "- Utilize os videos incluidos para apoio visual durante a instalacao e o uso."
+}
+
+if ($zipPackage) {
+    $notesLines += "- O pacote compactado `"$($zipPackage.Name)`" pode ser usado como copia completa da entrega."
+}
+
+$notesLines += @(
+    "",
     "## Checksums SHA-256",
+    "",
+    "Compare os hashes abaixo com os arquivos baixados para validar a integridade da entrega.",
     ""
 )
 
