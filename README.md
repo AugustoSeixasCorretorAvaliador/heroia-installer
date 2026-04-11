@@ -17,6 +17,11 @@ Arquivos normalmente incluidos em cada entrega:
 - `Manual_Usuario.MP4`
 - `SHA256SUMS.txt`
 
+## Videos Online
+
+- Manual de uso do HERO.IA: `https://youtu.be/InutfvU54dM?si=70TSBiKbNljsQ46G`
+- Instalacao das 2 extensoes no Google Chrome: `https://youtu.be/rTsrga_pEyg?si=7qE7x2SoM2HVkW1j`
+
 ## Instalacao Rapida
 
 1. Abra a pagina de `Releases`.
@@ -24,6 +29,7 @@ Arquivos normalmente incluidos em cada entrega:
 3. Se necessario, baixe tambem o manual em PDF e os videos de apoio.
 4. Execute o instalador como administrador no Windows.
 5. Siga o passo a passo exibido na instalacao.
+6. Se preferir, assista aos videos no YouTube antes de instalar.
 
 ## Verificacao de Integridade
 

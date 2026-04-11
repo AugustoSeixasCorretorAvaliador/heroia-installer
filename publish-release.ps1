@@ -39,6 +39,8 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
 
 $shaFile = Join-Path $root "SHA256SUMS.txt"
 $releaseTitleValue = if ($ReleaseTitle) { $ReleaseTitle } else { "HEROIA Installer $Version" }
+$youtubeManualUrl = "https://youtu.be/InutfvU54dM?si=70TSBiKbNljsQ46G"
+$youtubeInstallUrl = "https://youtu.be/rTsrga_pEyg?si=7qE7x2SoM2HVkW1j"
 $mainInstaller = $assets | Where-Object { $_.Name -like "*.exe" } | Select-Object -First 1
 $pdfManual = $assets | Where-Object { $_.Extension -eq ".pdf" } | Select-Object -First 1
 $videoFiles = @($assets | Where-Object { $_.Extension -eq ".mp4" })
@@ -61,6 +63,7 @@ $notesLines = @(
     "1. Baixe o instalador principal listado abaixo.",
     "2. Se necessario, baixe tambem o manual em PDF e os videos de apoio.",
     "3. Execute a instalacao no Windows com permissao de administrador.",
+    "4. Se preferir, assista aos videos online listados abaixo.",
     ""
 )
 
@@ -77,6 +80,7 @@ $notesLines += @(
     "- Instalador principal do HEROIA",
     "- Materiais de apoio para instalacao e uso",
     "- Arquivo `SHA256SUMS.txt` para verificacao de integridade",
+    "- Links diretos para videos no YouTube",
     "",
     "## Arquivos incluidos"
 )
@@ -87,6 +91,11 @@ $notesLines += foreach ($asset in $assets) {
 }
 
 $notesLines += @(
+    "",
+    "## Videos Online",
+    "",
+    "- Manual de uso do HERO.IA: $youtubeManualUrl",
+    "- Instalacao das 2 extensoes no Google Chrome: $youtubeInstallUrl",
     "",
     "## Orientacoes de uso",
     ""
@@ -101,7 +110,7 @@ if ($pdfManual) {
 }
 
 if ($videoFiles.Count -gt 0) {
-    $notesLines += "- Utilize os videos incluidos para apoio visual durante a instalacao e o uso."
+    $notesLines += "- Utilize os videos incluidos ou os links do YouTube para apoio visual durante a instalacao e o uso."
 }
 
 if ($zipPackage) {
