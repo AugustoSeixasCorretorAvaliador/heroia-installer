@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HEROIA Installer</title>
+  <meta name="description" content="Pagina oficial de download do instalador HEROIA.">
+  <style>
+    :root {
+      --bg: #f5efe2;
+      --bg-accent: #e7dcc6;
+      --panel: rgba(255, 250, 241, 0.88);
+      --text: #1c1f1a;
+      --muted: #5d6358;
+      --line: rgba(28, 31, 26, 0.12);
+      --primary: #0b6b57;
+      --primary-strong: #084f41;
+      --gold: #b4822e;
+      --shadow: 0 20px 60px rgba(39, 42, 34, 0.14);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(180, 130, 46, 0.18), transparent 28%),
+        radial-gradient(circle at right 20%, rgba(11, 107, 87, 0.16), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, #f8f4eb 45%, #efe6d5 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 40px;
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      background: linear-gradient(135deg, rgba(255, 250, 241, 0.96), rgba(235, 226, 205, 0.88));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -90px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(11, 107, 87, 0.22), rgba(11, 107, 87, 0));
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(11, 107, 87, 0.1);
+      color: var(--primary-strong);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    h1 {
+      max-width: 720px;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      max-width: 700px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: #fff;
+      box-shadow: 0 16px 30px rgba(11, 107, 87, 0.24);
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.54);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .panel {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .downloads,
+    .steps,
+    .links {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .card small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      margin-bottom: 14px;
+      font-size: 0.96rem;
+    }
+
+    .mini-link {
+      color: var(--primary-strong);
+      font-weight: 700;
+    }
+
+    ol {
+      padding-left: 20px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(11, 107, 87, 0.08);
+      font-family: Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .foot {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .panel {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="eyebrow">Distribuicao Oficial</span>
+      <h1>Baixe o instalador HEROIA com acesso direto ao manual e ao suporte em video.</h1>
+      <p class="lead">
+        Esta e a pagina oficial de entrega publica do HEROIA. Aqui voce encontra o instalador principal,
+        o manual ilustrado, a verificacao de integridade e os videos de apoio para instalacao e uso.
+      </p>
+
+      <div class="actions">
+        <a class="button primary" href="https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest/download/HEROIA-Suite-Completa%20full.exe">Baixar Instalador</a>
+        <a class="button secondary" href="https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest">Abrir Release Mais Recente</a>
+        <a class="button secondary" href="https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest/download/HEROIA-Manual-Ilustrado-FULL.pdf">Baixar Manual PDF</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>Windows</strong>
+          Instale com permissao de administrador.
+        </div>
+        <div class="stat">
+          <strong>PDF + SHA256</strong>
+          Manual ilustrado e verificacao de integridade.
+        </div>
+        <div class="stat">
+          <strong>YouTube</strong>
+          Apoio visual para instalacao e uso.
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <h2>Downloads e apoio</h2>
+        <p>Use a release mais recente para garantir que voce esta baixando a versao final mais atual disponivel.</p>
+
+        <div class="downloads">
+          <div class="card">
+            <small>Arquivo principal</small>
+            <h3>HEROIA-Suite-Completa full.exe</h3>
+            <p>Instalador recomendado para o cliente final.</p>
+            <a class="mini-link" href="https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest/download/HEROIA-Suite-Completa%20full.exe">Baixar executavel</a>
+          </div>
+
+          <div class="card">
+            <small>Manual</small>
+            <h3>HEROIA-Manual-Ilustrado-FULL.pdf</h3>
+            <p>Guia visual para instalacao e operacao inicial.</p>
+            <a class="mini-link" href="https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest/download/HEROIA-Manual-Ilustrado-FULL.pdf">Baixar PDF</a>
+          </div>
+
+          <div class="card">
+            <small>Integridade</small>
+            <h3>SHA256SUMS.txt</h3>
+            <p>Arquivo com os hashes oficiais da entrega publicada.</p>
+            <a class="mini-link" href="https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest/download/SHA256SUMS.txt">Baixar checksums</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="panel">
+        <h2>Instalacao rapida</h2>
+        <div class="steps">
+          <div class="card">
+            <ol>
+              <li>Baixe o arquivo <code>HEROIA-Suite-Completa full.exe</code>.</li>
+              <li>Abra o instalador no Windows como administrador.</li>
+              <li>Se desejar, consulte o manual em PDF antes de concluir a instalacao.</li>
+              <li>Use os videos abaixo para acompanhar o processo passo a passo.</li>
+            </ol>
+          </div>
+        </div>
+
+        <h2 style="margin-top: 22px;">Videos online</h2>
+        <div class="links">
+          <div class="card">
+            <small>Suporte em video</small>
+            <h3>Manual de uso do HERO.IA</h3>
+            <p>Apresentacao pratica do copiloto inteligente assistivo.</p>
+            <a class="mini-link" href="https://youtu.be/InutfvU54dM?si=70TSBiKbNljsQ46G">Abrir no YouTube</a>
+          </div>
+
+          <div class="card">
+            <small>Suporte em video</small>
+            <h3>Instalacao das 2 extensoes no Google Chrome</h3>
+            <p>Passo a passo para ativar as extensoes necessarias.</p>
+            <a class="mini-link" href="https://youtu.be/rTsrga_pEyg?si=7qE7x2SoM2HVkW1j">Abrir no YouTube</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <p class="foot">
+      Se preferir ver todos os arquivos publicados, abra a
+      <a class="mini-link" href="https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest">release mais recente no GitHub</a>.
+    </p>
+  </main>
+</body>
+</html>
