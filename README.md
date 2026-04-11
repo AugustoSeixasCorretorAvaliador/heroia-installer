@@ -11,10 +11,7 @@ Os arquivos de instalacao e apoio ficam na aba `Releases` deste repositorio.
 Arquivos normalmente incluidos em cada entrega:
 
 - `HEROIA-Suite-Completa full.exe`
-- `HEROIA-Instalador-Manual-Video-FULL.zip`
 - `HEROIA-Manual-Ilustrado-FULL.pdf`
-- `Instalacao_Extensao_GCrome.MP4`
-- `Manual_Usuario.MP4`
 - `SHA256SUMS.txt`
 
 ## Videos Online
@@ -26,7 +23,7 @@ Arquivos normalmente incluidos em cada entrega:
 
 1. Abra a pagina de `Releases`.
 2. Baixe o arquivo principal `HEROIA-Suite-Completa full.exe`.
-3. Se necessario, baixe tambem o manual em PDF e os videos de apoio.
+3. Se necessario, baixe tambem o manual em PDF.
 4. Execute o instalador como administrador no Windows.
 5. Siga o passo a passo exibido na instalacao.
 6. Se preferir, assista aos videos no YouTube antes de instalar.
@@ -46,9 +43,8 @@ Compare o valor retornado com a linha correspondente dentro de `SHA256SUMS.txt`.
 ## Conteudo da Entrega
 
 - Instalador principal para uso final.
-- Pacote completo compactado para distribuicao.
 - Manual ilustrado em PDF.
-- Videos de apoio para instalacao e uso.
+- Videos de apoio publicados no YouTube.
 
 ## Suporte de Uso
 
