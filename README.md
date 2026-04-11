@@ -1,54 +1,71 @@
 # HEROIA Installer
 
-Repositorio publico para distribuir a entrega final do instalador HEROIA aos usuarios.
+Entrega publica final do instalador HEROIA.
 
-Este repositorio foi preparado como espelho de distribuicao. Os arquivos finais grandes nao entram no historico Git comum; eles devem ser publicados em `Releases` do GitHub.
+[Baixar a versao mais recente](https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest)
 
-## O que fica neste repo
+## Download
 
-- `README.md`: orientacoes de uso e publicacao
-- `publish-release.ps1`: gera checksums e publica os arquivos da pasta como assets de uma release
-- `SHA256SUMS.txt`: hashes SHA-256 dos arquivos finais atuais
+Os arquivos de instalacao e apoio ficam na aba `Releases` deste repositorio.
 
-## Arquivos de entrega atuais
+Arquivos normalmente incluidos em cada entrega:
 
 - `HEROIA-Suite-Completa full.exe`
 - `HEROIA-Instalador-Manual-Video-FULL.zip`
 - `HEROIA-Manual-Ilustrado-FULL.pdf`
-- `Instalacao_Extensao_GCrome.MP4` / `Instalação_Extensão_GCrome.MP4`
+- `Instalacao_Extensao_GCrome.MP4`
 - `Manual_Usuario.MP4`
+- `SHA256SUMS.txt`
 
-## Fluxo recomendado
+## Instalacao Rapida
 
-1. Copie para esta pasta apenas os arquivos finais de distribuicao.
-2. Gere ou atualize `SHA256SUMS.txt` com:
+1. Abra a pagina de `Releases`.
+2. Baixe o arquivo principal `HEROIA-Suite-Completa full.exe`.
+3. Se necessario, baixe tambem o manual em PDF e os videos de apoio.
+4. Execute o instalador como administrador no Windows.
+5. Siga o passo a passo exibido na instalacao.
 
-```powershell
-.\publish-release.ps1 -Version v2026.04.10 -PrepareOnly
-```
+## Verificacao de Integridade
 
-3. Revise os arquivos e faça o commit da estrutura do repositorio:
+Este repositorio publica o arquivo `SHA256SUMS.txt` junto com cada release.
 
-```powershell
-git add README.md .gitignore publish-release.ps1 SHA256SUMS.txt
-git commit -m "chore: prepare public installer mirror"
-git push -u origin main
-```
-
-4. Autentique o GitHub CLI se necessario:
+Para conferir o hash no Windows PowerShell:
 
 ```powershell
-gh auth login
+Get-FileHash ".\HEROIA-Suite-Completa full.exe" -Algorithm SHA256
 ```
 
-5. Publique a release com os binarios:
+Compare o valor retornado com a linha correspondente dentro de `SHA256SUMS.txt`.
+
+## Conteudo da Entrega
+
+- Instalador principal para uso final.
+- Pacote completo compactado para distribuicao.
+- Manual ilustrado em PDF.
+- Videos de apoio para instalacao e uso.
+
+## Suporte de Uso
+
+Se voce recebeu este material como cliente ou usuario final, utilize sempre a release mais recente publicada neste repositorio.
+
+Se houver duvida durante a instalacao, use primeiro:
+
+- o manual ilustrado em PDF
+- o video de instalacao
+- o video do manual do usuario
+
+## Para o Mantenedor
+
+Este repositorio funciona como espelho publico de distribuicao. Os binarios finais devem ser publicados em `Releases`, nao no historico Git.
+
+Fluxo recomendado para novas entregas:
 
 ```powershell
-.\publish-release.ps1 -Version v2026.04.10
+powershell -ExecutionPolicy Bypass -File ".\publish-release.ps1" -Version "v2026.04.10"
 ```
 
-## Observacoes
+Antes de publicar, voce pode preparar e revisar checksums/notas com:
 
-- Este repo deve conter somente artefatos finais de entrega e metadados publicos.
-- Nao inclua codigo-fonte privado, scripts internos ou credenciais.
-- Para os usuarios finais, o ponto de download ideal e a aba `Releases`.
+```powershell
+powershell -ExecutionPolicy Bypass -File ".\publish-release.ps1" -Version "v2026.04.10" -PrepareOnly
+```
