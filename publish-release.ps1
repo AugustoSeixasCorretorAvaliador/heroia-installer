@@ -89,11 +89,18 @@ if ($PrepareOnly) {
     return
 }
 
-$viewArgs = @("release", "view", $Version, "--repo", $Repo)
-$releaseExists = $true
-& gh @viewArgs *> $null
+$releaseExists = $false
+$listArgs = @("release", "list", "--repo", $Repo, "--limit", "100", "--json", "tagName")
+$releaseListJson = & gh @listArgs
 if ($LASTEXITCODE -ne 0) {
-    $releaseExists = $false
+    throw "Falha ao consultar as releases do repositorio $Repo."
+}
+
+if ($releaseListJson) {
+    $releaseList = $releaseListJson | ConvertFrom-Json
+    if ($releaseList) {
+        $releaseExists = @($releaseList | Where-Object { $_.tagName -eq $Version }).Count -gt 0
+    }
 }
 
 if ($releaseExists) {
