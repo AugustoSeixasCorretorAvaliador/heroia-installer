@@ -10,7 +10,7 @@ Os arquivos de instalacao e apoio ficam na aba `Releases` deste repositorio.
 
 Arquivos normalmente incluidos em cada entrega:
 
-- `HEROIA-Suite-Completa.full.exe`
+- `HEROIA-Suite-Completa-full.exe`
 - `HEROIA-Manual-Ilustrado-FULL.pdf`
 - `SHA256SUMS.txt`
 
@@ -22,7 +22,7 @@ Arquivos normalmente incluidos em cada entrega:
 ## Instalacao Rapida
 
 1. Abra a pagina de `Releases`.
-2. Baixe o arquivo principal `HEROIA-Suite-Completa.full.exe`.
+2. Baixe o arquivo principal `HEROIA-Suite-Completa-full.exe`.
 3. Se necessario, baixe tambem o manual em PDF.
 4. Execute o instalador como administrador no Windows.
 5. Siga o passo a passo exibido na instalacao.
@@ -35,7 +35,7 @@ Este repositorio publica o arquivo `SHA256SUMS.txt` junto com cada release.
 Para conferir o hash no Windows PowerShell:
 
 ```powershell
-Get-FileHash ".\HEROIA-Suite-Completa.full.exe" -Algorithm SHA256
+Get-FileHash ".\HEROIA-Suite-Completa-full.exe" -Algorithm SHA256
 ```
 
 Compare o valor retornado com a linha correspondente dentro de `SHA256SUMS.txt`.
