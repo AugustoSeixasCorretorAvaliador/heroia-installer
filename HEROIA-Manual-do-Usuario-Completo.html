@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HERO.IA Manual do Usuario Completo</title>
+  <style>
+    :root {
+      --bg: #07111d;
+      --panel: #0f2238;
+      --panel-2: #14304f;
+      --line: #2b4b70;
+      --text: #eef5fb;
+      --muted: #bfd0e0;
+      --accent: #ff9850;
+      --accent-2: #ffd2a8;
+      --ok: #8fd3a5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #06101a 0%, #0a1829 45%, #0d2541 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 28px 60px;
+    }
+
+    .hero,
+    .card,
+    .step,
+    .table-card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(15, 34, 56, 0.98), rgba(8, 19, 33, 0.98));
+      box-shadow: 0 22px 56px rgba(2, 8, 20, 0.36);
+    }
+
+    .hero {
+      padding: 30px;
+    }
+
+    .card,
+    .step,
+    .table-card {
+      padding: 20px;
+    }
+
+    .step {
+      margin-bottom: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      font-size: 13px;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .badge.ok {
+      color: #0d2715;
+      background: linear-gradient(135deg, var(--ok), #d4f7df);
+      border-color: transparent;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #f8fbff;
+    }
+
+    h2 {
+      margin: 34px 0 14px;
+      font-size: 25px;
+      color: #f6fbff;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #f7fbff;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lead {
+      font-size: 18px;
+      color: #f5faff;
+      max-width: 74ch;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .code {
+      display: block;
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #07111d;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f6fbff;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 14px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    ul, ol {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .step-number {
+      display: inline-block;
+      min-width: 34px;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #2a1509;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(191, 208, 224, 0.14);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      width: 28%;
+      color: #f6fbff;
+    }
+
+    .highlight {
+      border-left: 4px solid var(--accent);
+    }
+
+    .footer {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(191, 208, 224, 0.16);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    a {
+      color: #ffd6b1;
+    }
+
+    @media print {
+      body { background: #0a1829; }
+      .page { max-width: none; padding: 14px; }
+      .hero, .card, .step, .table-card { break-inside: avoid; }
+    }
+
+    @media (max-width: 860px) {
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="brand">
+        <div>
+          <h1>HERO.IA Manual do Usuario Completo</h1>
+          <p class="muted">Ecossistema unificado de instalacao, ativacao e operacao diaria.</p>
+        </div>
+      </div>
+
+      <p class="lead">
+        Este manual unifica os modulos HERO.IA Ecossistema, HERO.IA Disparador, HERO.IA Gerador de Leads e HERO Trainer, considerando a rotina atual de instalacao da suite e a operacao real no ambiente local.
+      </p>
+
+      <div>
+        <span class="badge ok">Suite unificada validada</span>
+        <span class="badge">Instalacao em E:\Main HEROIA 2026 UNIF</span>
+        <span class="badge">Servidor 3000</span>
+        <span class="badge">Servidor 3001</span>
+        <span class="badge">Extensoes Chrome</span>
+        <span class="badge">Modulo complementar Trainer</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>1. O que compoe o ecossistema</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>HERO.IA Ecossistema</h3>
+          <p>Extensao principal para WhatsApp Web com botoes assistivos de rascunho, follow-up, PDF, audio, credito e status de servidores.</p>
+        </div>
+        <div class="card">
+          <h3>HERO.IA Disparador</h3>
+          <p>Servidor local na porta 3000 para campanhas WhatsApp com warmup, QR, painel web e controle sequencial de envio.</p>
+        </div>
+        <div class="card">
+          <h3>HERO.IA Gerador de Leads</h3>
+          <p>Extensao de busca comercial com backend local na porta 3001, validacao de licenca e exportacao CSV.</p>
+        </div>
+        <div class="card">
+          <h3>Hero Trainer</h3>
+          <p>Modulo complementar em formato PWA, focado em rotinas e acompanhamento local-first.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Estrutura instalada pela suite</h2>
+      <div class="table-card">
+        <table class="info-table">
+          <tbody>
+            <tr>
+              <th>Pasta base</th>
+              <td><code>E:\Main HEROIA 2026 UNIF</code></td>
+            </tr>
+            <tr>
+              <th>Extensao principal</th>
+              <td><code>E:\Main HEROIA 2026 UNIF\heroia-platform</code></td>
+            </tr>
+            <tr>
+              <th>Leads</th>
+              <td><code>E:\Main HEROIA 2026 UNIF\hero_leads</code></td>
+            </tr>
+            <tr>
+              <th>Disparador</th>
+              <td><code>E:\Main HEROIA 2026 UNIF\whatsapp-outreach</code></td>
+            </tr>
+            <tr>
+              <th>Atalho principal</th>
+              <td><code>HERO.IA Suite Completa</code> no Desktop</td>
+            </tr>
+            <tr>
+              <th>Desinstalacao</th>
+              <td>Arquivos tecnicos ficam em <code>E:\Main HEROIA 2026 UNIF\_HEROIA_SYSTEM</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Instalacao recomendada</h2>
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Execute o instalador da suite como Administrador</h3>
+        <p>Use a versao mais recente do instalador unificado HERO.IA Suite Completa.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Confirme os tres itens finais</h3>
+        <p>No final da instalacao, os unicos atalhos relevantes sao:</p>
+        <ul>
+          <li>Iniciar HERO.IA Suite Completa</li>
+          <li>Iniciar HERO.IA Disparador</li>
+          <li>Iniciar HERO.IA Gerador de Leads</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Deixe o setup preparar os ambientes</h3>
+        <p>Na rotina atual, o instalador executa o preparo do Disparador e tambem o <code>npm ci</code> do backend do Gerador de Leads.</p>
+      </div>
+      <div class="card highlight">
+        <h3>Importante</h3>
+        <p>O backend de Leads depende do arquivo <code>backend\.env</code>, que contem a configuracao local do Supabase. Sem esse arquivo o servidor 3001 nao inicia corretamente.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Primeira inicializacao da suite</h2>
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Clique no atalho HERO.IA Suite Completa</h3>
+        <p>Esse atalho chama o <code>FULL_SERVER.BAT</code> na raiz da instalacao.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>O launcher verifica e sobe os dois servidores</h3>
+        <ul>
+          <li>Porta 3000 para o Disparador</li>
+          <li>Porta 3001 para o Gerador de Leads</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>O launcher tambem abre os caminhos uteis</h3>
+        <ul>
+          <li><code>http://localhost:3000</code></li>
+          <li><code>chrome://extensions</code></li>
+          <li>Pasta da extensao <code>heroia-platform</code></li>
+          <li>Pasta da extensao <code>hero-leads-extension</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Como ativar as extensoes no Chrome</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Extensao HERO.IA Ecossistema</h3>
+          <ol>
+            <li>Abra <code>chrome://extensions</code></li>
+            <li>Ative o Modo Desenvolvedor</li>
+            <li>Clique em Carregar sem compactacao</li>
+            <li>Selecione <code>E:\Main HEROIA 2026 UNIF\heroia-platform</code></li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Extensao HERO.IA Gerador de Leads</h3>
+          <ol>
+            <li>Na mesma tela de extensoes</li>
+            <li>Clique em Carregar sem compactacao</li>
+            <li>Selecione <code>E:\Main HEROIA 2026 UNIF\hero_leads\hero-leads-extension</code></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Operacao do Disparador</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Objetivo</h3>
+          <p>Executar campanhas WhatsApp com painel local, QR de autenticacao e controle seguro de envio.</p>
+        </div>
+        <div class="card">
+          <h3>Ponto de acesso</h3>
+          <p><code>http://localhost:3000</code></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Abra o painel</h3>
+        <p>O browser deve abrir automaticamente. Caso nao abra, acesse manualmente o endereco local na porta 3000.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Leia o status do WhatsApp</h3>
+        <p>O sistema exibe estado da sessao, QR, warmup, campanha e logs recentes.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Monte a campanha</h3>
+        <ul>
+          <li>Mensagem base</li>
+          <li>Numeros</li>
+          <li>Janelas e ritmo de envio</li>
+          <li>Imagem opcional</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Controle a execucao</h3>
+        <p>Use os botoes de iniciar, pausar, retomar e parar conforme a operacao.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Operacao do Gerador de Leads</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Objetivo</h3>
+          <p>Buscar leads por cidade, bairro e segmento, com validacao de licenca e exportacao CSV.</p>
+        </div>
+        <div class="card">
+          <h3>Dependencia obrigatoria</h3>
+          <p>O backend local precisa estar saudavel em <code>http://localhost:3001</code>.</p>
+        </div>
+      </div>
+      <div class="table-card">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Valor recomendado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>API Base Licenca</th>
+              <td>Servidor de licenca definido pela entrega comercial</td>
+            </tr>
+            <tr>
+              <th>API Base Busca</th>
+              <td><code>http://localhost:3001</code></td>
+            </tr>
+            <tr>
+              <th>License Key</th>
+              <td>Chave do cliente</td>
+            </tr>
+            <tr>
+              <th>E-mail</th>
+              <td>E-mail vinculado a licenca</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Ative a licenca</h3>
+        <p>Preencha os dados e clique em <strong>Ativar / Validar licenca</strong>.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Realize a busca</h3>
+        <p>Informe cidade, bairro opcional e segmento. Depois clique em <strong>Buscar Leads</strong>.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Exporte o resultado</h3>
+        <p>Quando houver resultados, use <strong>Exportar CSV</strong>.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Operacao do HERO.IA Ecossistema no WhatsApp Web</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Gerar Rascunho</h3>
+          <p>Cria resposta assistida sem envio automatico.</p>
+        </div>
+        <div class="card">
+          <h3>Copiloto / Follow-up</h3>
+          <p>Apoia o atendimento com propostas de continuidade.</p>
+        </div>
+        <div class="card">
+          <h3>Enviar PDF</h3>
+          <p>Ajuda no fluxo documental dentro do WhatsApp Web.</p>
+        </div>
+        <div class="card">
+          <h3>Transcrever Audio</h3>
+          <p>Apoio para entendimento rapido de audios recebidos.</p>
+        </div>
+        <div class="card">
+          <h3>Simular Credito</h3>
+          <p>Abre o modulo assistivo de simulacao.</p>
+        </div>
+        <div class="card">
+          <h3>Status 3000 e 3001</h3>
+          <p>Indicadores visuais mostram se os servidores locais estao ativos.</p>
+        </div>
+      </div>
+      <div class="card highlight">
+        <h3>Regra de seguranca</h3>
+        <p>No Ecossistema, a rotina continua assistiva. A extensao insere ou prepara conteudo, mas nao envia mensagens sozinha.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>9. Hero Trainer</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Perfil do modulo</h3>
+          <p>PWA local-first para acompanhamento de treinos, planos e rotinas.</p>
+        </div>
+        <div class="card">
+          <h3>Modo de uso</h3>
+          <p>Pode ser servido localmente ou publicado em GitHub Pages, conforme a estrategia de entrega.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Suba em servidor estatico simples</h3>
+        <span class="code">python -m http.server 8000</span>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Abra no navegador</h3>
+        <span class="code">http://localhost:8000</span>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Use como PWA local</h3>
+        <p>O modulo foi desenhado para funcionamento local-first, com persistencia no navegador.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>10. Guia de uso diario</h2>
+      <div class="card">
+        <h3>Video oficial de operacao diaria</h3>
+        <p>Use este guia como referencia pratica para as funcoes do ecossistema no dia a dia:</p>
+        <p><a href="https://youtu.be/InutfvU54dM?si=WhzjyH4gFo1rifWi" target="_blank" rel="noopener noreferrer">Assistir guia de uso diario no YouTube</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>11. Solucao de problemas</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>3000 nao sobe</h3>
+          <ul>
+            <li>Verifique se o Node foi instalado corretamente.</li>
+            <li>Rode novamente o atalho HERO.IA Suite Completa.</li>
+            <li>Cheque o painel local em <code>http://localhost:3000</code>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>3001 nao sobe</h3>
+          <ul>
+            <li>Confirme a existencia de <code>backend\.env</code>.</li>
+            <li>Rode <code>npm ci</code> em <code>hero_leads\backend</code> se necessario.</li>
+            <li>Verifique se a porta esperada e <code>3001</code>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Extensao nao aparece</h3>
+          <ul>
+            <li>Confirme o Modo Desenvolvedor no Chrome.</li>
+            <li>Recarregue a extensao manualmente.</li>
+            <li>Atualize a aba do WhatsApp Web.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Leads sem resposta</h3>
+          <ul>
+            <li>Confirme a licenca ativa.</li>
+            <li>Revise a API Base Busca para <code>http://localhost:3001</code>.</li>
+            <li>Teste um segmento mais amplo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>12. Sequencia oficial recomendada</h2>
+      <div class="card">
+        <ol>
+          <li>Instale a HERO.IA Suite Completa.</li>
+          <li>Finalize a primeira execucao com o atalho HERO.IA Suite Completa.</li>
+          <li>Ative as duas extensoes no Chrome.</li>
+          <li>Valide se o Disparador responde em 3000.</li>
+          <li>Valide se o backend de Leads responde em 3001.</li>
+          <li>Use o Ecossistema no WhatsApp Web.</li>
+          <li>Use o Gerador de Leads e exporte CSV.</li>
+          <li>Use o guia diario em video para a rotina operacional.</li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="footer">
+      HERO.IA Manual do Usuario Completo. Documento consolidado a partir dos manuais do Ecossistema, Disparador, Gerador de Leads e Hero Trainer, atualizado para a rotina unificada de instalacao e operacao.
+    </div>
+  </main>
+</body>
+</html>
