@@ -12,27 +12,27 @@ SolidCompression=yes
 PrivilegesRequired=admin
 
 [Files]
-Source: "FULL_SERVER.BAT"; DestDir: "{app}"
+Source: "..\operacao\FULL_SERVER.BAT"; DestDir: "{app}\operacao"
 
-Source: "heroia-platform\*"; DestDir: "{app}\heroia-platform"; \
+Source: "..\heroia-platform\*"; DestDir: "{app}\heroia-platform"; \
 Flags: recursesubdirs createallsubdirs; \
-Excludes: ".git\*,.gitignore,node_modules\*,*.log,*.tmp,*.iss,*.lnk"
+Excludes: ".git\*,.git_standalone_backup_*\*,.gitignore,node_modules\*,*.log,*.tmp,*.iss,*.lnk"
 
-Source: "hero_leads\*"; DestDir: "{app}\hero_leads"; \
+Source: "..\hero_leads\*"; DestDir: "{app}\hero_leads"; \
 Flags: recursesubdirs createallsubdirs; \
 Excludes: ".git\*,.gitignore,node_modules\*,*.log,*.tmp,*.iss,*.lnk,backend\server-*.log"
 
-Source: "whatsapp-outreach\*"; DestDir: "{app}\whatsapp-outreach"; \
+Source: "..\whatsapp-outreach\*"; DestDir: "{app}\whatsapp-outreach"; \
 Flags: recursesubdirs createallsubdirs; \
 Excludes: ".git\*,.gitignore,node_modules\*,*.log,*.tmp,*.iss,*.lnk,src\storage\auth\*,src\storage\logs\*,src\storage\campaign-state.json,src\storage\cooldown.json,src\storage\warmup-meta.json,src\storage\warmup-*.json,dist\storage\*"
 
 [Icons]
-Name: "{commondesktop}\HERO.IA Suite Completa"; Filename: "{app}\FULL_SERVER.BAT"
+Name: "{commondesktop}\HERO.IA Suite Completa"; Filename: "{app}\operacao\FULL_SERVER.BAT"
 Name: "{commondesktop}\HERO.IA Ecossistema"; Filename: "explorer.exe"; Parameters: """{app}\heroia-platform"""
 Name: "{commondesktop}\HERO.IA Gerador de Leads"; Filename: "{app}\hero_leads\backend\Prospect.bat"
 Name: "{commondesktop}\HERO.IA Disparador"; Filename: "{app}\whatsapp-outreach\DISPARO.BAT"
 
-Name: "{group}\HERO.IA Suite Completa"; Filename: "{app}\FULL_SERVER.BAT"
+Name: "{group}\HERO.IA Suite Completa"; Filename: "{app}\operacao\FULL_SERVER.BAT"
 Name: "{group}\HERO.IA Ecossistema"; Filename: "explorer.exe"; Parameters: """{app}\heroia-platform"""
 Name: "{group}\HERO.IA Gerador de Leads"; Filename: "{app}\hero_leads\backend\Prospect.bat"
 Name: "{group}\HERO.IA Disparador"; Filename: "{app}\whatsapp-outreach\DISPARO.BAT"
@@ -50,11 +50,12 @@ Description: "Configurando ambiente do Disparador (npm install)..."; \
 Flags: waituntilterminated skipifdoesntexist
 
 Filename: "cmd.exe"; \
-Parameters: "/c ""cd /d ""{app}\hero_leads\backend"" && npm ci"""; \
+Parameters: "/c npm ci"; \
+WorkingDir: "{app}\hero_leads\backend"; \
 Description: "Configurando ambiente do Gerador de Leads (npm install)..."; \
 Flags: waituntilterminated skipifdoesntexist
 
-Filename: "{app}\FULL_SERVER.BAT"; \
+Filename: "{app}\operacao\FULL_SERVER.BAT"; \
 Description: "Iniciar HERO.IA Suite Completa"; \
 Flags: nowait postinstall skipifsilent unchecked
 
