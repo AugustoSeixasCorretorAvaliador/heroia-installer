@@ -2,9 +2,9 @@
 
 Entrega publica final do instalador HEROIA.
 
-Versao atual: `04.05.26`
+Versao atual: `1.0.5` - release `03.08.26`
 
-[Baixar a versao 04.05.26](https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/tag/04.05.26)
+[Baixar a versao mais recente](https://github.com/AugustoSeixasCorretorAvaliador/heroia-installer/releases/latest)
 
 ## Download
 
@@ -12,7 +12,7 @@ Os arquivos de instalacao e apoio ficam na aba `Releases` deste repositorio.
 
 Arquivos normalmente incluidos em cada entrega:
 
-- `HEROIA-Suite-Completa-full.exe`
+- `HEROIA-Suite-Completa_full.exe`
 - `HEROIA-Manual-Ilustrado-FULL.pdf`
 - `SHA256SUMS.txt`
 
@@ -23,8 +23,8 @@ Arquivos normalmente incluidos em cada entrega:
 
 ## Instalacao Rapida
 
-1. Abra a pagina da release `04.05.26`.
-2. Baixe o arquivo principal `HEROIA-Suite-Completa-full.exe`.
+1. Abra a pagina da release `03.08.26`.
+2. Baixe o arquivo principal `HEROIA-Suite-Completa_full.exe`.
 3. Se necessario, baixe tambem o manual em PDF.
 4. Execute o instalador como administrador no Windows.
 5. Siga o passo a passo exibido na instalacao.
@@ -37,7 +37,7 @@ Este repositorio publica o arquivo `SHA256SUMS.txt` junto com cada release.
 Para conferir o hash no Windows PowerShell:
 
 ```powershell
-Get-FileHash ".\HEROIA-Suite-Completa-full.exe" -Algorithm SHA256
+Get-FileHash ".\HEROIA-Suite-Completa_full.exe" -Algorithm SHA256
 ```
 
 Compare o valor retornado com a linha correspondente dentro de `SHA256SUMS.txt`.
@@ -50,7 +50,7 @@ Compare o valor retornado com a linha correspondente dentro de `SHA256SUMS.txt`.
 
 ## Suporte de Uso
 
-Se voce recebeu este material como cliente ou usuario final, utilize sempre a release `04.05.26` ou uma release posterior publicada neste repositorio.
+Se voce recebeu este material como cliente ou usuario final, utilize sempre a release `03.08.26` ou uma release posterior publicada neste repositorio.
 
 Se houver duvida durante a instalacao, use primeiro:
 
@@ -65,11 +65,11 @@ Este repositorio funciona como espelho publico de distribuicao. Os binarios fina
 Fluxo recomendado para novas entregas:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File ".\publish-release.ps1" -Version "04.05.26"
+powershell -ExecutionPolicy Bypass -File ".\publish-release.ps1" -Version "03.08.26"
 ```
 
 Antes de publicar, voce pode preparar e revisar checksums/notas com:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File ".\publish-release.ps1" -Version "04.05.26" -PrepareOnly
+powershell -ExecutionPolicy Bypass -File ".\publish-release.ps1" -Version "03.08.26" -PrepareOnly
 ```

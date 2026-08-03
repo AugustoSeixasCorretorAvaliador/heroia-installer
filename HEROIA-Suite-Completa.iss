@@ -1,12 +1,12 @@
 [Setup]
 AppName=HERO.IA Suite Completa
-AppVersion=1.0.4
+AppVersion=1.0.5
 DefaultDirName=E:\Main HEROIA 2026 UNIF
 DefaultGroupName=HERO.IA
 UninstallFilesDir={app}\_HEROIA_SYSTEM
 UninstallDisplayName=HERO.IA Suite Completa
 OutputDir=.
-OutputBaseFilename=HEROIA-Suite-Completa
+OutputBaseFilename=HEROIA-Suite-Completa_full
 Compression=lzma
 SolidCompression=yes
 PrivilegesRequired=admin
@@ -45,12 +45,12 @@ Description: "Instalando Node.js..."; \
 Flags: waituntilterminated skipifdoesntexist
 
 Filename: "cmd.exe"; \
-Parameters: "/c ""{app}\whatsapp-outreach\Setup_NPM.bat"""; \
+Parameters: "/d /c ""{app}\whatsapp-outreach\Setup_NPM.bat"""; \
 Description: "Configurando ambiente do Disparador (npm install)..."; \
 Flags: waituntilterminated skipifdoesntexist
 
 Filename: "cmd.exe"; \
-Parameters: "/c npm ci"; \
+Parameters: "/d /c ""{app}\hero_leads\backend\Setup_NPM.bat"""; \
 WorkingDir: "{app}\hero_leads\backend"; \
 Description: "Configurando ambiente do Gerador de Leads (npm install)..."; \
 Flags: waituntilterminated skipifdoesntexist
